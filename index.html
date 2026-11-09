@@ -11,6 +11,7 @@
     <button onclick="
 
     // this is a code for the Computer Move.
+
         let computerMove = Math.random();
 
         if(computerMove>=0 && computerMove<1/3){
@@ -23,6 +24,8 @@
             computerMove = 'Scissors';
         }
 
+        // this is the code for the result.
+
         let result='';
         if('Rock' === computerMove){
             result = 'Match is Tie.'
@@ -34,13 +37,79 @@
             result = 'You won.'
         }
 
+        // code for the displaying the result.
+
         alert(` You choose Rock. Computer choose ${computerMove}. ${result}  `);
 
-
-
     ">Rock</button>
-    <button>Paper</button>
-    <button>Scissors</button>
+    <button onclick="
+
+     // this is a code for the Computer Move.
+
+        let computerMove = Math.random();
+
+        if(computerMove>=0 && computerMove<1/3){
+            computerMove = 'Rock';
+        }
+        if(computerMove>=1/3 && computerMove<2/3){
+            computerMove = 'Paper';
+        }
+        if(computerMove>=2/3 && computerMove<1){
+            computerMove = 'Scissors';
+        }
+
+        // this is the code for the result.
+
+        let result='';
+        if('Paper' === computerMove){
+            result = 'Match is Tie.'
+        }
+        else if('Scissors' === computerMove){
+            result = 'You lose.'
+        }
+        else{
+            result = 'You won.'
+        }
+
+        // code for the displaying the result.
+
+        alert(` You choose Paper. Computer choose ${computerMove}. ${result}  `);
+
+    ">Paper</button>
+    <button onclick="
+    
+     // this is a code for the Computer Move.
+
+        let computerMove = Math.random();
+
+        if(computerMove>=0 && computerMove<1/3){
+            computerMove = 'Rock';
+        }
+        if(computerMove>=1/3 && computerMove<2/3){
+            computerMove = 'Paper';
+        }
+        if(computerMove>=2/3 && computerMove<1){
+            computerMove = 'Scissors';
+        }
+
+        // this is the code for the result.
+
+        let result='';
+        if('Scissors' === computerMove){
+            result = 'Match is Tie.'
+        }
+        else if('Rock' === computerMove){
+            result = 'You lose.'
+        }
+        else{
+            result = 'You won.'
+        }
+
+        // code for the displaying the result.
+
+        alert(` You choose Scissors. Computer choose ${computerMove}. ${result}  `);
+
+    ">Scissors</button>
 
     <script>
 
