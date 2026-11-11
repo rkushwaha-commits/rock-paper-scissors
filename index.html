@@ -12,8 +12,8 @@
       onclick="
         const computerMove = pickComputerMove();
         const result = playGame('Rock', computerMove);
-
-        alert(` You choose Rock. Computer choose ${computerMove}. ${result}  `);
+        updateScore(result);
+        displayScore('Rock', computerMove, result, score);
       "
     >
       Rock
@@ -22,10 +22,8 @@
       onclick="
         const computerMove = pickComputerMove();
         const result = playGame('Paper', computerMove);
-
-        alert(
-          ` You choose Paper. Computer choose ${computerMove}. ${result}  `,
-        );
+        updateScore(result);
+        displayScore('Paper', computerMove, result, score);
       "
     >
       Paper
@@ -34,13 +32,21 @@
       onclick="
         const computerMove = pickComputerMove();
         const result = playGame('Scissors', computerMove);
-
-        alert(
-          ` You choose Scissors. Computer choose ${computerMove}. ${result}  `,
-        );
+        updateScore(result);
+        displayScore('Scissors', computerMove, result, score);
       "
     >
       Scissors
+    </button>
+    <button
+      onclick="
+        score.wins = 0;
+        score.losses = 0;
+        score.ties = 0;
+        localStorage.removeItem('score');
+      "
+    >
+      Reset Score
     </button>
 
     <script>
@@ -84,6 +90,35 @@
           }
         }
         return result;
+      }
+
+      let score = JSON.parse(localStorage.getItem("score"));
+
+      if (score === null) {
+        score = {
+          wins : 0,
+          losses : 0,
+          ties : 0
+        };
+      }
+
+      console.log(JSON.parse(localStorage.getItem("score")));
+
+      function updateScore(result) {
+        if (result === "You won.") {
+          score.wins += 1;
+        } else if (result === "You lose.") {
+          score.losses += 1;
+        } else if (result === "Match is Tie.") {
+          score.ties += 1;
+        }
+        localStorage.setItem("score", JSON.stringify(score));
+      }
+
+      function displayScore(myMove, computerMove, result, score) {
+        alert(
+          `You choose ${myMove}. computer choose ${computerMove}. ${result} \nWins: ${score.wins} ,Losses: ${score.losses} ,Ties: ${score.ties} `,
+        );
       }
     </script>
   </body>
